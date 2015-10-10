@@ -1,0 +1,51 @@
+<div class="container" ng-app="VisitorCenter">
+  <h1>Visitors</h1>
+
+  <div ng-controller="visitorsController">
+    <div class="well">
+      <h3>Add a new Visitor</h3>
+      <%= render 'form' %>
+    </div>
+
+    <h3>Currently Visiting</h3>
+    <hr />
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Sex</th>
+        <th>Age</th>
+        <th>PhoneNo</th>
+        <th>Location</th>
+        <th>Reason For Visit</th>
+        <th>ContactPerson</th>
+        <th>IDProof</th>
+        <th>IDNumber</th>
+        <th>GatePass</th>
+        <th>LoginDate</th>
+        <th>&nbsp;</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-show="!visitors.length">
+        <td colspan="4">No visitors in the building.</td>
+      </tr>
+      <tr ng-repeat="visitor in visitors">
+        <td>{{ visitor.first_name + " " + visitor.last_name }}</td>
+        <td>{{ visitor.sex }}</td>
+        <td>{{ visitor.age }}</td>
+        <td>{{ visitor.phone_no }}</td>
+        <td>{{ visitor.location }}</td>
+        <td>{{ visitor.reason }}</td>
+        <td>{{ visitor.contact_person }}</td>
+        <td>{{ visitor.id_proof }}</td>
+        <td>{{ visitor.id_number }}</td>
+        <td>{{ visitor.auto_generate_id }}</td>
+        <td>{{ visitor.created_at | date:"MM/dd/yyyy" }}</td>
+        <td><a class="btn btn-primary" href="" ng-click="editVisitor($index)">Edit</a> | <a href="" class="btn btn-danger" ng-click="deleteVisitor($index)">Remove</a></td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

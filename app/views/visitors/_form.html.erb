@@ -1,0 +1,84 @@
+<form name="VisitorForm" ng-submit="addVisitor()" novalidate>
+  <div class="row form-group required">
+    <label class="col-md-2 control-label">FirstName</label>
+    <div class="col-xs-4">
+      <input type="text" ng-model="newVisitor.first_name" class="form-control" placeholder="First Name" server-error/>
+    </div>
+    <label class="col-md-2 control-label">LastName</label>
+    <div class="col-xs-4">
+      <input type="text" ng-model="newVisitor.last_name" class="form-control" placeholder="Last Name" />
+    </div>
+  </div>
+
+  <div class="row form-group required">
+    <label class="col-md-2 control-label">Sex</label>
+    <div class="col-xs-4">
+      <select ng-model="newVisitor.sex" class="form-control">
+        <option value="">Sex</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+    </div>
+    <label class="col-md-2 control-label">Age</label>
+    <div class="col-xs-4">
+      <input type="text" ng-model="newVisitor.age" class="form-control" placeholder="Age" />
+    </div>
+  </div>
+
+  <div class="row form-group required">
+    <label class="col-md-2 control-label">PhoneNo</label>
+    <div class="col-xs-4">
+      <input type="text" ng-model="newVisitor.phone_no" class="form-control" placeholder="PhoneNo" />
+    </div>
+    <label class="col-md-2 control-label">Location</label>
+    <div class="col-xs-4">
+      <input type="text" ng-model="newVisitor.location" class="form-control" placeholder="Location" />
+    </div>
+  </div>
+
+  <div class="row form-group required">
+    <label class="col-md-2 control-label">Reason for Visit</label>
+    <div class="col-xs-4">
+      <input type="text" ng-model="newVisitor.reason" class="form-control" placeholder="Reason for Visit" />
+    </div>
+    <label class="col-md-2 control-label">Contact Person</label>
+    <div class="col-xs-4">
+      <input type="text" ng-model="newVisitor.contact_person" class="form-control" placeholder="Contact Person" />
+    </div>
+  </div>
+
+  <div class="row form-group required">
+    <label class="col-md-2 control-label">ID Proof</label>
+    <div class="col-xs-4">
+      <select ng-model="newVisitor.id_proof" class="form-control">
+        <option value="">ID Proof</option>
+        <option value="1">VoterID</option>
+        <option value="2">PANCard</option>
+        <option value="3">AaathorCard</option>
+        <option value="4">DrivingLic</option>
+        <option value="5">RationCard</option>
+      </select>
+    </div>
+    <label class="col-md-2 control-label">ID Number</label>
+    <div class="col-xs-4">
+      <input type="text" ng-model="newVisitor.id_number" class="form-control" placeholder="ID Number" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <br />
+      <input type="Submit" value="Save Visitor" class="btn btn-primary" />
+    </div>
+  </div>
+</form>
+
+
+<style>
+
+  .form-group.required .control-label:after{
+    content:"*";
+    color:red;
+  }
+
+</style>
