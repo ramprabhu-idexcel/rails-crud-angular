@@ -4,17 +4,17 @@ var visitorCenter = angular.module('VisitorCenter', ['ngResource']);
 // Adding factory for visitor
 visitorCenter.factory("Visitor", function($resource) {
     return $resource("visitors/:id", { id: '@id' }, {
-        index:   { method: 'GET', isArray: true, responseType: 'json' },
-        update:  { method: 'PUT', responseType: 'json' },
-        delete: { method: 'DELETE', params: {id: '@id'},responseType: 'json' }
+        index:   { method: 'GET', isArray: true, headers: { 'Accept': 'application/json' }, responseType: 'json' },
+        update:  { method: 'PUT', headers: { 'Accept': 'application/json' }, responseType: 'json' },
+        delete: { method: 'DELETE', headers: { 'Accept': 'application/json' }, params: {id: '@id'},responseType: 'json' }
     });
 });
 
 
 visitorCenter.factory('Visitors', function($resource){
     return $resource('/visitors.json', {},{
-        query: { method: 'GET', isArray: true },
-        create: { method: 'POST' }
+        query: { method: 'GET', isArray: true , headers: { 'Accept': 'application/json' } },
+        create: { method: 'POST', headers: { 'Accept': 'application/json' } }
     })
 });
 
@@ -31,21 +31,13 @@ visitorCenter.controller("visitorsController", function($scope, Visitor, Visitor
                 //$scope.visitors.push(visitor);
                 //$scope.newVisitor = {};
                Visitors.create({visitor: $scope.newVisitor}, function(result){
-
-                  if(angular.isUndefined(result.visitor_errors)) {
-                      $scope.visitors.push(result);
-                      $scope.newVisitor = {};
-                      alert("Visitor has been created successfully");
-                  }
-                  else{
-                      alert(result.visitor_errors);
-                  }
+                   CreateNewVisitor($scope,result);
                });
 
             }
             else {
-                Visitor.update({id: $scope.newVisitor.id}, {visitor: $scope.newVisitor}, function () {
-                    $scope.newVisitor = {};
+                Visitor.update({id: $scope.newVisitor.id}, {visitor: $scope.newVisitor}, function (result) {
+                    UpdateVisitor($scope,result);
                 });
             }
 
@@ -66,6 +58,32 @@ visitorCenter.controller("visitorsController", function($scope, Visitor, Visitor
     }
 
 });
+
+// Creating a new visitor
+function CreateNewVisitor($scope, result) {
+    if(angular.isUndefined(result.visitor_errors)) {
+        $scope.visitors.push(result);
+        $scope.newVisitor = {};
+        alert("Visitor has been created successfully");
+    }
+    else{
+        alert(result.visitor_errors);
+    }
+}
+
+// Update visitor
+function UpdateVisitor($scope, result) {
+    if(angular.isUndefined(result.visitor_errors)) {
+        $scope.newVisitor = {};
+        alert("Visitor has been updated successfully");
+    }
+    else{
+        alert(result.visitor_errors);
+    }
+}
+
+
+
 
 
 

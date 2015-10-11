@@ -18,4 +18,8 @@ class Visitor < ActiveRecord::Base
     end
   end
 
+  def as_json(options={})
+    super()
+  end
+
 end

@@ -1,6 +1,7 @@
 class VisitorsController < ApplicationController
+  before_action :authenticate_user!
   before_action :get_visitor, only:[:update]
-  respond_to :json
+  respond_to :json,:html
 
   def index
     respond_to do |format|
@@ -23,7 +24,11 @@ class VisitorsController < ApplicationController
   end
 
   def update
-    respond_with @visitor.update(visitor_params)
+    if @visitor.update(visitor_params)
+      render json: @visitor, status: :ok
+    else
+      render json: {visitor_errors: @visitor.errors.full_messages, status: :no_content}
+    end
   end
 
   private

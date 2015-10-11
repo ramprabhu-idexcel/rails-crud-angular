@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
@@ -31,6 +30,10 @@ gem 'angular-ui-bootstrap-rails' #for bootstrap UI
 gem 'bootstrap-sass'
 
 gem 'responders', '~> 2.0'
+
+gem 'activeadmin', github: 'gregbell/active_admin'
+
+gem 'devise'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

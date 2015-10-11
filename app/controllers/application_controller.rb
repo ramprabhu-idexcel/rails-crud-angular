@@ -9,6 +9,14 @@ class ApplicationController < ActionController::Base
     cookies['XSRF-TOKEN'] = form_authenticity_token if protect_against_forgery?
   end
 
+  def authenticate_active_admin_user!
+    authenticate_user!
+    unless current_user.superadmin?
+      flash[:alert] = "Unauthorized Access!"
+      redirect_to root_path
+    end
+  end
+
   protected
 
   def verified_request?
