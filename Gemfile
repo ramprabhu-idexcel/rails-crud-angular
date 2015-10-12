@@ -34,7 +34,9 @@ gem "bootstrap-sass-rails"
 
 gem 'responders', '~> 2.0'
 
-gem 'activeadmin', path: "vendor/gems/activeadmin"
+#gem 'activeadmin', path: "vendor/gems/activeadmin"
+
+gem 'activeadmin', github: 'activeadmin'
 
 gem 'devise'
 
