@@ -25,7 +25,7 @@ class Visitor < ActiveRecord::Base
   def self.search(params={})
     search = params[:search]
     if search && !search.empty?
-      where("first_name LIKE ? OR last_name LIKE ? OR sex LIKE ? OR age LIKE ? OR phone_no LIKE ? OR location LIKE ? OR contact_person LIKE ? OR id_number LIKE ?",
+      where("first_name LIKE ? OR last_name LIKE ? OR sex LIKE ? OR cast(age as text) LIKE ? OR phone_no LIKE ? OR location LIKE ? OR contact_person LIKE ? OR id_number LIKE ?",
             "%#{search}%", "%#{search}%","%#{search}%", "%#{search}%","%#{search}%", "%#{search}%","%#{search}%", "%#{search}%")
     else
       all
