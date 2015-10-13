@@ -36,7 +36,7 @@ gem 'responders', '~> 2.0'
 
 #gem 'activeadmin', path: "vendor/gems/activeadmin"
 
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git'
 
 gem 'devise'
 
