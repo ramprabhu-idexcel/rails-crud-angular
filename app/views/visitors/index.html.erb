@@ -10,6 +10,18 @@
     <h3>Currently Visiting</h3>
     <hr />
     <table class="table table-bordered table-striped">
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="input-group">
+            <input type="text" class="form-control search-query" placeholder="Search" name="query" ng-model="query">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" ng-click="searchVisitor()">Go!</button>
+              </span>
+          </div>
+        </div>
+      </div>
+      <br/>
       <thead>
       <tr>
         <th>Name</th>
@@ -49,3 +61,4 @@
 
   </div>
 </div>
+

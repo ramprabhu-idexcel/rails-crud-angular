@@ -55,7 +55,14 @@ visitorCenter.controller("visitorsController", function($scope, Visitor, Visitor
     $scope.editVisitor = function(index) {
         $scope.newVisitor = $scope.visitors[index];
 
-    }
+    };
+
+    //Search functionality
+
+    $scope.searchVisitor = function() {
+        search_data = $scope.query;
+        $scope.visitors = Visitor.index({search: search_data});
+    };
 
 });
 

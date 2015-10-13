@@ -5,7 +5,7 @@ class VisitorsController < ApplicationController
 
   def index
     respond_to do |format|
-      format.json { render json: Visitor.all }
+      format.json { render json: Visitor.search(params) }
       format.html
     end
   end
