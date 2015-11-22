@@ -40,3 +40,5 @@ http://stackoverflow.com/questions/33551254/cant-get-my-rspec-test-of-a-javascri
 http://stackoverflow.com/questions/18069240/capybara-notsupportedbydrivererror-when-trying-to-simulate-pressing-enter
 
 http://stackoverflow.com/questions/24415786/how-do-i-configure-capybara-to-work-with-poltergeist
+
+https://robots.thoughtbot.com/rspec-integration-tests-with-capybara
