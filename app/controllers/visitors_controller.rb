@@ -4,8 +4,9 @@ class VisitorsController < ApplicationController
   respond_to :json,:html
 
   def index
+    @visitors = Visitor.search(params)
     respond_to do |format|
-      format.json { render json: Visitor.search(params) }
+      format.json { render json: @visitors }
       format.html
     end
   end

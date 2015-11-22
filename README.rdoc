@@ -26,3 +26,17 @@ Things you may want to cover:
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+Reference link:
+
+http://www.rubydoc.info/gems/capybara#Using_Capybara_with_RSpec
+
+https://github.com/jnicklas/capybara#using-capybara-with-rspec
+
+http://blog.55minutes.com/2013/10/test-javascript-with-capybara-webkit/
+
+http://stackoverflow.com/questions/33551254/cant-get-my-rspec-test-of-a-javascript-click-event-to-pass
+
+http://stackoverflow.com/questions/18069240/capybara-notsupportedbydrivererror-when-trying-to-simulate-pressing-enter
+
+http://stackoverflow.com/questions/24415786/how-do-i-configure-capybara-to-work-with-poltergeist
