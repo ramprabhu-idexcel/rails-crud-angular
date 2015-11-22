@@ -39,5 +39,36 @@ feature 'Manage Visitor Signup' do
   end
 end
 
+feature 'User signs up' do
+  before(:each) { login_admin('doej@test.com') }
+
+  scenario 'with valid email and password' do
+    sign_up_with 'valid@example.com', 'password'
+
+    expect(page).to have_content('Logout')
+  end
+
+  scenario 'with invalid email' do
+    sign_up_with 'invalid_email', 'password'
+
+    expect(page).to have_content('is invalid')
+  end
+
+  scenario 'with blank password' do
+    sign_up_with 'valid@example.com', ''
+
+    expect(page).to have_content("can't be blank")
+  end
+
+  def sign_up_with(email, password)
+    visit admin_users_path
+    click_on 'New User'
+    fill_in 'user_email', with: email
+    fill_in 'user_password', with: password
+    fill_in 'user_password_confirmation', with: password
+    click_button 'Save'
+  end
+end
+
 
 
