@@ -63,6 +63,7 @@ group :development, :test do
   gem 'capybara-webkit'
   gem "database_cleaner"
   gem 'factory_girl_rails'
+  gem 'selenium-webdriver'
   gem 'guard-rspec'
   gem 'spring-commands-rspec'
 end

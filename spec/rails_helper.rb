@@ -12,10 +12,9 @@ require 'capybara/rspec'
 require 'capybara/webkit/matchers'
 require 'factory_girl_rails'
 require 'database_cleaner'
+require 'selenium/webdriver'
 
 include ControllerHelpers
-
-Capybara.javascript_driver = :webkit
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -69,6 +68,20 @@ RSpec.configure do |config|
   config.include(Capybara::Webkit::RspecMatchers, :type => :feature)
 
   config.use_transactional_fixtures = false
+
+  #Capybara.javascript_driver = :selenium
+
+  Capybara.javascript_driver = :webkit
+
+  Capybara.run_server = true
+  Capybara.server_port = 3002
+  Capybara.default_selector = :css
+  Capybara.default_wait_time = 5
+  Capybara.ignore_hidden_elements = false
+  Capybara.app_host = "http://localhost:3002"
+  Capybara.register_driver :selenium do |app|
+    Capybara::Selenium::Driver.new(app, :browser => :firefox)
+  end
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
